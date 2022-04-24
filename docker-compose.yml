@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   app:
-    build: ./laravel9/php
+    build: ./scraping_app/php
     volumes:
       - ./src:/data
   
@@ -11,12 +11,12 @@ services:
       - 8080:80
     volumes:
       - ./src:/data
-      - ./laravel9/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./scraping_app/nginx/default.conf:/etc/nginx/conf.d/default.conf
     working_dir: /data
 
 
   db:
-    build: ./laravel9/mysql
+    build: ./scraping_app/mysql
     volumes:
       - db-store:/var/lib/mysql
   
